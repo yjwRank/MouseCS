@@ -27,7 +27,8 @@ public class ServerThread implements Runnable {
                     if(str==null||"".equals(str)){
                         flag=false;
                     }else{
-                        out.println("echo:"+str);
+                        out.println("server:"+str);
+
                     }
                 }
 

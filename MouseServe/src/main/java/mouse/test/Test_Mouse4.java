@@ -7,7 +7,7 @@ import java.io.*;
  */
 public class Test_Mouse4 {
     public static void main(String[] args) throws IOException {
-        BufferedInputStream in=new BufferedInputStream(new FileInputStream("/dev/input/mouse0"));
+        BufferedInputStream in=new BufferedInputStream(new FileInputStream("/dev/input/mice"));
         while(true){
             int input=in.read();
             if(input!=-1)

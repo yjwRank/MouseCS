@@ -50,8 +50,10 @@ public class MouseControl {
             int b=Integer.valueOf((int)Math.sqrt(900-i*i));
             mouseControl.MoveToLoc(i,b);
         }*/
-        while(true)
-        mouseControl.MoveToLoc(500,500);
+        int height=Toolkit.getDefaultToolkit().getScreenSize().height;
+        int width=Toolkit.getDefaultToolkit().getScreenSize().width;
+       // while(true)
+        mouseControl.MoveToLoc(width,height);
        /* while(true){
         for(int i=0;i<500;i++){
             mouseControl.Move(1,1);
@@ -109,6 +111,7 @@ public class MouseControl {
         System.out.println("move to ("+x+","+y+")");
        // robot.delay(10);
         robot.mouseMove(x,y);
+        robot.delay(10000);
         //robot.delay(100);
     }
 

@@ -26,7 +26,8 @@ public class Test_Mouse4 {
         int bythread=0;
         in=new FileInputStream("/dev/input/mice");
         while((bythread=in.read(tempbytes))!=-1){
-            System.out.println((Integer.valueOf(tempbytes[0])&0x07)+" "+String.valueOf(tempbytes[1])+" "+String.valueOf(tempbytes[2]));
+            //System.out.println((Integer.valueOf(tempbytes[0])&0x1F)+" "+String.valueOf(tempbytes[1])+" "+String.valueOf(tempbytes[2]));
+            System.out.println("left:"+(tempbytes[0]&0x01)+" right:"+(tempbytes[0]&0x02)+" mid:"+(tempbytes[0]&0x04));
         }
     }
 }

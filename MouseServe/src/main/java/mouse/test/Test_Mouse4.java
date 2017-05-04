@@ -19,7 +19,7 @@ public class Test_Mouse4 {
 
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main2(String[] args) throws IOException {
         File file=new File("/dev/input/mice");
         InputStream in=null;
         byte[] tempbytes=new byte[3];

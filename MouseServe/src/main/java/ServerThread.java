@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -22,14 +23,26 @@ public class ServerThread implements Runnable {
                 PrintStream out=new PrintStream(client.getOutputStream());
                 BufferedReader buf=new BufferedReader(new InputStreamReader(client.getInputStream()));
                 boolean flag=true;
+                Dimension dim=Toolkit.getDefaultToolkit().getScreenSize();
+                String screen=dim.width+","+dim.height;
+                System.out.println(buf.readLine());
+                out.println(String.valueOf(dim.width));
+                out.println(String.valueOf(dim.height));
                 while(flag){
-                    String str=buf.readLine();
+                   /* String str=buf.readLine();
                     if(str==null||"".equals(str)){
                         flag=false;
                     }else{
-                        out.println("server:"+str);
+                        int locx=MouseInfo.getPointerInfo().getLocation().x;
+                        int locy=MouseInfo.getPointerInfo().getLocation().y;
+                        out.println(locx);
+                        out.println(locy);
 
-                    }
+                    }*/
+                    int locx=MouseInfo.getPointerInfo().getLocation().x;
+                    int locy=MouseInfo.getPointerInfo().getLocation().y;
+                    out.println(locx);
+                    out.println(locy);
                 }
 
                 out.close();

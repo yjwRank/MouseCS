@@ -9,7 +9,7 @@ import java.net.Socket;
  * Created by yjw on 17-4-28.
  */
 public class MouseServe {
-    public static void main1(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         ServerSocket server=new ServerSocket(20006);
         Socket client=null;
         boolean f=true;
@@ -36,7 +36,7 @@ public class MouseServe {
     }
 
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         Toolkit.getDefaultToolkit().addAWTEventListener(
                 new Listener(), AWTEvent.MOUSE_EVENT_MASK | AWTEvent.FOCUS_EVENT_MASK);
         JFrame frame = new JFrame();

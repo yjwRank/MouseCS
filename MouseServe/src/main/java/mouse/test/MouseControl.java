@@ -39,7 +39,7 @@ public class MouseControl {
     public static void main7(String[] args){
 
     }
-    public static void main(String[] args){
+    public static void main4(String[] args){
         MouseControl mouseControl=new MouseControl();
         int r=50;
        /* for(int i=0;i<30;i++){
@@ -75,12 +75,14 @@ public class MouseControl {
     public static void main3(String[] args){
         MouseControl mouseControl=new MouseControl();
         mouseControl.MoveToLoc(34,704);
-        mouseControl.Click();
+        mouseControl.leftClick();
     }
 
     //mouse move action
-    public static void main4(String[] agrs){
-
+    public static void main(String[] agrs){
+        MouseControl mouseControl=new MouseControl();
+       mouseControl.rightClick();
+       // mouseControl.leftClick();
     }
 
 
@@ -97,12 +99,15 @@ public class MouseControl {
         }
     }
 
+    public void rightClick(){
+        ;
+    }
 
     public void movetest(){
 
     }
 
-    public void Click(){
+    public void leftClick(){
         robot.mousePress(InputEvent.BUTTON1_MASK);
         robot.mouseRelease(InputEvent.BUTTON1_MASK);
     }
@@ -111,7 +116,7 @@ public class MouseControl {
         System.out.println("move to ("+x+","+y+")");
        // robot.delay(10);
         robot.mouseMove(x,y);
-        robot.delay(10000);
+       // robot.delay(10000);
         //robot.delay(100);
     }
 

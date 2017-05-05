@@ -73,6 +73,7 @@ public class MouseControl {
 
     //mouse action
     public static void main3(String[] args){
+
         MouseControl mouseControl=new MouseControl();
         mouseControl.MoveToLoc(34,704);
         mouseControl.leftClick();
@@ -80,9 +81,11 @@ public class MouseControl {
 
     //mouse move action
     public static void main(String[] agrs){
+        GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        Rectangle bounds = env.getMaximumWindowBounds();
+        System.out.println("Screen Bounds: " + bounds );
         MouseControl mouseControl=new MouseControl();
-       mouseControl.rightClick();
-       // mouseControl.leftClick();
+        mouseControl.MoveToLoc(65,24);
     }
 
 

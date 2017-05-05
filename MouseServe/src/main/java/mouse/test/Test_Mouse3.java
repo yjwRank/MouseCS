@@ -25,7 +25,6 @@ public class Test_Mouse3 implements MouseMotionListener,MouseListener{
         jFrame.setLocation(100,100);
         jFrame.setOpacity(0.1f);
         jFrame.setVisible(true);
-        jFrame.setVisible(false);
     }
 
     @Override

@@ -1,8 +1,10 @@
 package mouse.test;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import mouse.event.Constants;
+
+import javax.swing.*;
+import java.awt.event.*;
+
 
 /**
  * Created by yjw on 17-4-28.
@@ -10,7 +12,17 @@ import java.awt.event.MouseMotionListener;
 public class MouseEventList implements MouseMotionListener,MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println("mouse click");
+        switch (e.getButton()){
+            case 1:
+                lastMotion= Constants.MOUSE_CLICK_LEFT;
+                break;
+            case 2:
+                lastMotion=Constants.MOUSE_CLICK_MID;
+                break;
+            case 3:
+                lastMotion=Constants.MOUSE_CLICK_RIGHT;
+        }
+        System.out.println("button:"+e.getButton()+" mouse click");
     }
 
     @Override
@@ -44,5 +56,22 @@ public class MouseEventList implements MouseMotionListener,MouseListener {
     }
 
 
+    public int getLastMotion(){return lastMotion;}
+
+    public static void main(String[] args) throws InterruptedException {
+        ActionListener actionListener=new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        };
+        Timer timer=new Timer(1000,actionListener);
+        timer.start();
+        Thread.sleep(10000);
+    }
+
+
+
+    private int lastMotion=-1;
 
 }

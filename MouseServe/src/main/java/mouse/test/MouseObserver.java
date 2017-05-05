@@ -98,11 +98,11 @@ public class MouseObserver {
     public static void main(String[] args) {
         JFrame main = new JFrame("dummy...");
         main.setSize(100,100);
-       // main.setVisible(true);
-       // main.setExtendedState(JFrame.MAXIMIZED_BOTH);
-//        main.setUndecorated(true);
+        main.setVisible(true);
+
+
         main.setLocation(1000,800);
-        main.setOpacity(0.5f);
+
         main.setVisible(true);
 
 

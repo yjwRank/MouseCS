@@ -10,21 +10,31 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.*;
 import static java.awt.GraphicsDevice.WindowTranslucency.*;
 
-public class Test_Mouse5 extends JFrame implements MouseMotionListener,MouseListener {
-    public Test_Mouse5() {
+public class MJFrame extends JFrame implements MouseMotionListener,MouseListener {
+    public MJFrame() {
         super("TranslucentWindow");
         setLayout(new GridBagLayout());
 
-       // setSize(1999,1999);
+        // setSize(1999,1999);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Add a sample button.
-        add(new JButton("I am a Button"));
         addMouseListener(this);
         addMouseMotionListener(this);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+       // setExtendedState(JFrame.MAXIMIZED_BOTH);
         //System.out.println(getMaximumSize());
+        GraphicsEnvironment ge =
+                GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gd = ge.getDefaultScreenDevice();
+
+        Rectangle bounds = ge.getMaximumWindowBounds();
+        setLocation((int)bounds.getX(),(int)bounds.getY());
+        setSize((int)bounds.getWidth(),(int)bounds.getHeight());
+        //setOpacity(0.5f);
+        setVisible(true);
+        // Create the GUI on the event-dispatching thread
+
     }
 
     @Override
@@ -82,7 +92,7 @@ public class Test_Mouse5 extends JFrame implements MouseMotionListener,MouseList
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                Test_Mouse5 tw = new Test_Mouse5();
+                MJFrame tw = new MJFrame();
 
                 // Set the window to 55% opaque (45% translucent).
                 tw.setOpacity(0.5f);

@@ -1,9 +1,14 @@
+import mouse.test.MJFrame;
+import mouse.test.MouseFrame;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.AWTEventListener;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+
+import static java.awt.GraphicsDevice.WindowTranslucency.TRANSLUCENT;
 
 /**
  * Created by yjw on 17-4-28.
@@ -16,6 +21,8 @@ public class MouseServe {
         while(f){
             client=server.accept();
             System.out.println("connect to cli");
+            //MouseFrame m=new MouseFrame("test",10000,100,-50,-50,0.5f);
+
             new Thread(new ServerThread(client)).start();
         }
     }

@@ -1,4 +1,7 @@
+import mouse.event.Constants;
+
 import java.awt.*;
+import java.awt.event.InputEvent;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -44,10 +47,40 @@ public class MouseCli {
                 }*/
                 String locx = buf.readLine();
                 String locy = buf.readLine();
+                String action =buf.readLine();
                 int rx=(int)(xdim*Integer.valueOf(locx));
                 int ry=(int)(ydim*Integer.valueOf(locy));
                 System.out.println("x:"+rx+" y:"+ry);
                 robot.mouseMove(rx,ry);
+
+                switch(Integer.valueOf(action)){
+                    case Constants.MOUSE_PRESS_LEFT:
+                        robot.mousePress(InputEvent.BUTTON1_MASK);
+                        System.out.println("left press");
+                        break;
+                    case Constants.MOUSE_PRESS_MID:
+                        robot.mousePress(InputEvent.BUTTON2_MASK);
+                        System.out.println("mid press");break;
+                    case Constants.MOUSE_PRESS_RIGHT:
+                        robot.mousePress(InputEvent.BUTTON3_MASK);
+                        System.out.println("right press");
+                        break;
+                    case Constants.MOUSE_RELEASE_LEFT:
+                        robot.mouseRelease(InputEvent.BUTTON1_MASK);
+                        System.out.println("left release");
+                        break;
+                    case Constants.MOUSE_RELEASE_MID:
+                        robot.mouseRelease(InputEvent.BUTTON2_MASK);
+                        System.out.println("mid release");
+                        break;
+                    case Constants.MOUSE_RELEASE_RIGHT:
+                        robot.mouseRelease(InputEvent.BUTTON3_MASK);
+                        System.out.println("right release");
+                        break;
+                    default:
+                        System.out.println("unsupport");
+                        break;
+                }
             }
 
             input.close();

@@ -1,4 +1,6 @@
+import mouse.event.Constants;
 import mouse.test.MouseEventList;
+import org.json.simple.JSONObject;
 
 import java.awt.*;
 import java.io.BufferedReader;
@@ -51,18 +53,48 @@ public class TestServerThread implements Runnable {
                         out.println(locy);
 
                     }*/
+                JSONObject object=new JSONObject();
                 int action=list.getLastMotion();
                 int locx = MouseInfo.getPointerInfo().getLocation().x;
                 int locy = MouseInfo.getPointerInfo().getLocation().y;
-                if (locx != prex && locy != prey) {
-                    out.println(locx);
-                    out.println(locy);
-                    //  this.frame.stop();
-                    prex = locx;
-                    prey = locy;
-                } else {
+
+
+                if(locx==prex&&locy==prey&&(action== Constants.MOUSE_RELEASE_LEFT||action==Constants.MOUSE_RELEASE_MID||action==Constants.MOUSE_RELEASE_RIGHT)) {
+                    continue;
+                }else{
                     ;
                 }
+
+                out.println(locx);
+                out.println(locy);
+                out.println(action);
+                if(preAction!=action){
+                    preAction=action;
+                }
+                prex=locx;
+                prey=locy;
+
+
+
+
+               /* if(locx!=prex&&locy!=prey){
+                    prex=locx;
+                    prey=locy;
+                }
+
+                if(action!=preAction){
+                    preAction=action;
+                    object.put("action",action);
+                }
+
+
+                    object.put("locx",locx);
+                    object.put("locy",locy);
+
+
+                System.out.println(object.toJSONString());*/
+               // out.println(object.toJSONString());
+
             }
             out.close();
             client.close();

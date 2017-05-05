@@ -12,47 +12,61 @@ import java.awt.event.*;
 public class MouseEventList implements MouseMotionListener,MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
-        switch (e.getButton()){
-            case 1:
-                lastMotion= Constants.MOUSE_CLICK_LEFT;
-                break;
-            case 2:
-                lastMotion=Constants.MOUSE_CLICK_MID;
-                break;
-            case 3:
-                lastMotion=Constants.MOUSE_CLICK_RIGHT;
-        }
-        System.out.println("button:"+e.getButton()+" mouse click");
+
+        //System.out.println("button:"+e.getButton()+" mouse click");
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        System.out.println("mouse press");
+        switch (e.getButton()){
+            case 1:
+                lastMotion= Constants.MOUSE_PRESS_LEFT;
+                break;
+            case 2:
+                lastMotion=Constants.MOUSE_PRESS_MID;
+                break;
+            case 3:
+                lastMotion=Constants.MOUSE_PRESS_RIGHT;
+                break;
+        }
+    //    System.out.println("mouse press");
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        System.out.println("mouse release");
+        switch (e.getButton()){
+            case 1:
+                lastMotion=Constants.MOUSE_RELEASE_LEFT;
+                break;
+            case 2:
+                lastMotion=Constants.MOUSE_RELEASE_MID;
+                break;
+            case 3:
+                lastMotion=Constants.MOUSE_RELEASE_RIGHT;
+                break;
+
+        }
+     //   System.out.println("button:"+e.getButton()+" mouse release");
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        System.out.println("mouse enter");
+    //    System.out.println("mouse enter");
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        System.out.println("mouse exit");
+     //   System.out.println("mouse exit");
     }
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        System.out.println("mouse drage");
+      //  System.out.println("mouse drage");
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        System.out.println("mouse move:"+e.getX()+","+e.getY());
+    //    System.out.println("mouse move:"+e.getX()+","+e.getY());
     }
 
 
@@ -72,6 +86,6 @@ public class MouseEventList implements MouseMotionListener,MouseListener {
 
 
 
-    private int lastMotion=-1;
+    private int lastMotion=Constants.MOUSE_RELEASE_LEFT;
 
 }
